@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 public class ViewPrincipal extends JFrame implements ActionListener
 {
@@ -26,6 +28,12 @@ public class ViewPrincipal extends JFrame implements ActionListener
 	private JButton btnPause;
 	private JButton btnStop;
 	private JTextField textFieldApi;
+	private JButton btnLog;
+	private JButton btnCopyTextAreaEmail;
+	private JButton btnCopyTextAreaDomain;
+	private JToggleButton tglbtnGoogle;
+	private JToggleButton tglbtnBrowser;
+	private JToggleButton tglbtnBing;
 
 	/**
 	 * Create the frame.
@@ -34,6 +42,7 @@ public class ViewPrincipal extends JFrame implements ActionListener
 	{
 		Font myFontNormal = new Font("Sans", 1, 12);
 		Font myFontCursiva = new Font("Ubuntu", 2, 10);
+		Font myFontLarge = new Font("Ubuntu", 1, 20);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 550);
@@ -43,15 +52,22 @@ public class ViewPrincipal extends JFrame implements ActionListener
 		setFont(myFontNormal);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(79, 79, 79));
 		setJMenuBar(menuBar);
 		
 		btnRun = new JButton("Run");
+		btnRun.setBackground(new Color(79, 79, 79));
+		btnRun.setForeground(Color.WHITE);
 		menuBar.add(btnRun);
 		
 		btnPause = new JButton("Pause");
+		btnPause.setBackground(new Color(79, 79, 79));
+		btnPause.setForeground(Color.WHITE);
 		menuBar.add(btnPause);
 		
 		btnStop = new JButton("Stop");
+		btnStop.setBackground(new Color(79, 79, 79));
+		btnStop.setForeground(Color.WHITE);
 		menuBar.add(btnStop);
 		
 		btnPause.addActionListener(this);
@@ -59,40 +75,52 @@ public class ViewPrincipal extends JFrame implements ActionListener
 		btnStop.addActionListener(this);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(34, 109, 177));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textFieldApi = new JTextField();
+		textFieldApi.setForeground(Color.WHITE);
 		textFieldApi.setBounds(32, 47, 143, 19);
 		contentPane.add(textFieldApi);
 		textFieldApi.setColumns(10);
 		
 		JLabel lblTurboIndexing = new JLabel("Turbo Indexing");
-		lblTurboIndexing.setBounds(183, 12, 114, 15);
+
+		lblTurboIndexing.setFont(myFontLarge);
+		lblTurboIndexing.setForeground(Color.WHITE);
+		lblTurboIndexing.setBounds(169, 12, 190, 23);
 		contentPane.add(lblTurboIndexing);
 		
-		JToggleButton tglbtnGoogle = new JToggleButton("");
+		tglbtnGoogle = new JToggleButton("");
+		tglbtnGoogle.setHorizontalAlignment(SwingConstants.LEFT);
+		tglbtnGoogle.setBackground(new Color(79, 79, 79));
 		tglbtnGoogle.setBounds(278, 47, 46, 19);
 		contentPane.add(tglbtnGoogle);
 		
 		JLabel lblGoogle = new JLabel("Google:");
+		lblGoogle.setForeground(Color.WHITE);
 		lblGoogle.setBounds(213, 49, 61, 15);
 		contentPane.add(lblGoogle);
 		
-		JToggleButton tglbtnBrowser = new JToggleButton("");
+		tglbtnBrowser = new JToggleButton("");
+		tglbtnBrowser.setBackground(new Color(79, 79, 79));
 		tglbtnBrowser.setBounds(417, 47, 46, 19);
 		contentPane.add(tglbtnBrowser);
 		
 		JLabel lblBrowser = new JLabel("Browser:");
+		lblBrowser.setForeground(Color.WHITE);
 		lblBrowser.setBounds(342, 49, 71, 15);
 		contentPane.add(lblBrowser);
 		
-		JToggleButton tglbtnBing = new JToggleButton("");
+		tglbtnBing = new JToggleButton("");
+		tglbtnBing.setBackground(new Color(79, 79, 79));
 		tglbtnBing.setBounds(278, 75, 46, 19);
 		contentPane.add(tglbtnBing);
 		
 		JLabel lblBin = new JLabel("Bing:");
+		lblBin.setForeground(Color.WHITE);
 		lblBin.setBounds(213, 76, 36, 15);
 		contentPane.add(lblBin);
 		
@@ -110,12 +138,42 @@ public class ViewPrincipal extends JFrame implements ActionListener
 		contentPane.add(textAreaDomain);
 		
 		JLabel lblAuthor = new JLabel("by marwilc");
-		lblAuthor.setBounds(342, 436, 107, 15);
+		lblAuthor.setForeground(Color.WHITE);
+		lblAuthor.setBounds(374, 440, 107, 15);
 		contentPane.add(lblAuthor);
 		
 		JLabel lblGit = new JLabel("See On GitHub");
-		lblGit.setBounds(342, 450, 119, 15);
+		lblGit.setForeground(Color.WHITE);
+		lblGit.setBounds(375, 454, 119, 15);
 		contentPane.add(lblGit);
+		
+		btnLog = new JButton("Log");
+		btnLog.setForeground(Color.WHITE);
+		btnLog.setBackground(new Color(79, 79, 79));
+		btnLog.setBounds(12, 439, 61, 25);
+		contentPane.add(btnLog);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setForeground(Color.WHITE);
+		lblEmail.setBounds(12, 123, 70, 15);
+		contentPane.add(lblEmail);
+		
+		JLabel lblDomain = new JLabel("Domain");
+		lblDomain.setForeground(Color.WHITE);
+		lblDomain.setBounds(257, 123, 70, 15);
+		contentPane.add(lblDomain);
+		
+		btnCopyTextAreaEmail = new JButton("C");
+		btnCopyTextAreaEmail.setBackground(new Color(79, 79, 79));
+		btnCopyTextAreaEmail.setForeground(Color.WHITE);
+		btnCopyTextAreaEmail.setBounds(193, 121, 46, 19);
+		contentPane.add(btnCopyTextAreaEmail);
+		
+		btnCopyTextAreaDomain = new JButton("C");
+		btnCopyTextAreaDomain.setBackground(new Color(79, 79, 79));
+		btnCopyTextAreaDomain.setForeground(Color.WHITE);
+		btnCopyTextAreaDomain.setBounds(442, 121, 46, 19);
+		contentPane.add(btnCopyTextAreaDomain);
 		
 		
 		
